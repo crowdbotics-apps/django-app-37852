@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load bootstrap4 %}
+{% block content %}
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Index</title>  
+    {% load staticfiles %}  
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>  
+    
+</head>  
+<body>  
+<form method="POST" class="post-form" action="/subs/update/{{sub.id}}">  
+  
+        {% csrf_token %}  
+    <div class="container">  
+<br>  
+    <div class="form-group row">  
+    <label class="col-sm-1 col-form-label"></label>  
+    <div class="col-sm-4">  
+    <h3>Update Details</h3>  
+    </div>  
+  </div>  
+    
+ 
+    <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Plan:</label>  
+    <div class="col-sm-4">  
+      <select name="plan" id="plan">
+        {% for id, obj in sub.plans %}
+        <option value="{{ id }}"{% if sub.plan == id %} selected="selected"{% endif %}>{{ obj }}</option>
+        {% endfor %}
+      </select>
+    </div>  
+  </div>  
+    <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">App:</label>  
+    <div class="col-sm-4">  
+      <select name="app" id="app">
+        {% for id in apps %}
+        <option value="{{ id.id }}"{% if sub.app == id %} selected="selected"{% endif %}>{{ id.id }}</option>
+        {% endfor %}
+      </select>
+    </div>  
+  </div>  
+    </div>  
+    <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Active:</label>  
+    <div class="col-sm-4">  
+        <input type="checkbox" name="active" id="id_active"  {% if sub.active %} checked {% endif %}/>  
+    </div>  
+  </div> 
+    <div class="form-group row">  
+    <label class="col-sm-1 col-form-label"></label>  
+    <div class="col-sm-4">  
+    <button type="submit" class="btn btn-success">Update</button>  
+    </div>  
+  </div>  
+    </div>  
+</form>  
+</body>  
+</html>  
+{% endblock %}

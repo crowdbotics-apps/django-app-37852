@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load bootstrap4 %}
+{% block content %}
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>APP Records</title>  
+     {% load staticfiles %}  
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>  
+</head>  
+<body>  
+<table >  
+    <thead class="thead-dark">  
+    <tr>  
+        <th>Id</th>  
+        <th> Name</th>  
+        <th> Decription</th>  
+        <th> Type</th>  
+        <th> Framework</th>  
+        <th> Domain name</th>  
+        <th>Actions</th>  
+    </tr>  
+    </thead>  
+    <tbody>  
+{% for app in apps %}  
+    <tr>  
+        <td>{{ app.id }}</td>  
+        <td>{{ app.name }}</td>  
+        <td>{{ app.description }}</td>  
+        <td>{{ app.type }}</td> 
+        <td>{{ app.framework }}</td>   
+        <td>{{ app.domain_name }}</td>  
+        <td>  
+            <a href="/app/edit/{{ app.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
+            <a href="/app/delete/{{ app.id }}">Delete</a>  
+        </td>  
+    </tr>  
+{% endfor %}  
+    </tbody>  
+</table>  
+<br>  
+<br>  
+<center><a href="/app" class="btn btn-primary">Add New App</a></center>  
+</body>  
+</html>  
+{% endblock %}

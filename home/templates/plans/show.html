@@ -1,0 +1,42 @@
+
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load bootstrap4 %}
+{% block content %}
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>plan Records</title>  
+     {% load staticfiles %}  
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>  
+</head>  
+<body>  
+<table>  
+    <thead class="thead-dark">  
+    <tr>  
+        <th>Id</th>  
+        <th> Name</th>  
+        <th> Decription</th>  
+        <th> Price</th>  
+      
+    </tr>  
+    </thead>  
+    <tbody>  
+{% for plan in plans %}  
+    <tr>  
+        <td>{{ plan.id }}</td>  
+        <td>{{ plan.name }}</td>  
+        <td>{{ plan.description }}</td>  
+        <td>{{ plan.price }}</td> 
+
+    </tr>  
+{% endfor %}  
+    </tbody>  
+</table>  
+<br>  
+<br>  
+
+</body>  
+</html> 
+{% endblock %} 

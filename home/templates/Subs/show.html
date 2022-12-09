@@ -1,0 +1,53 @@
+
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load bootstrap4 %}
+{% block content %}
+<!DOCTYPE html>  
+
+<html lang="en">  
+    
+<head>  
+    <meta charset="UTF-8">  
+    <title>subs Records</title>  
+     {% load staticfiles %}  
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>  
+</head>  
+<body>  
+<table >  
+    <thead class="thead-dark">  
+    <tr>  
+        <th>Id</th>  
+        <th> Plan</th> 
+        <th> App</th>   
+        <th> Active</th>   
+        <th>Actions</th>  
+    </tr>  
+    </thead>  
+    <tbody>  
+{% for subs in subs %}  
+    <tr>  
+        <td>{{ subs.id }}</td>  
+        <td>{{ subs.plan }}</td>  
+        <td>{{ subs.app.id }}</td>  
+        <td>
+            {% if subs.active %}
+            Yes
+            {% else %}
+            No
+             {% endif %}</td> 
+              
+        <td>  
+            <a href="/subs/edit/{{ subs.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
+     
+        </td>  
+    </tr>  
+{% endfor %}  
+    </tbody>  
+</table>  
+<br>  
+<br>  
+<center><a href="/subs/add" class="btn btn-primary">Add New subs</a></center>  
+</body>  
+</html>  
+{% endblock %}

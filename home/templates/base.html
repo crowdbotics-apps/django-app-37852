@@ -26,6 +26,15 @@
             <span class="navbar-toggler-icon"></span>
           </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <li class="nav-item">
+                    <a class="nav-link" href="/app/show">Apps</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/plans">Plans</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/subs">Subscriptions</a>
+                  </li>
                 <ul class="nav navbar-nav ml-auto">
                     {% if not user.is_authenticated %}
                         <li class="nav-item">
@@ -42,9 +51,7 @@
                 </ul>
             </div>
         </nav>
-        {% if user.is_superuser %}
-            <span class="btn btn-success top-right" id="editor" title="Change to inline editor">Edit</span>
-        {% endif %}
+ 
         {% block content %}
         {% endblock %}
     </div>
