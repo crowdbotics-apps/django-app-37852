@@ -1,21 +1,29 @@
-from django import forms  
-from .models import  App,Plans ,Subscription 
+from django import forms
+from .models import App, Plans, Subscription
+from rest_framework import serializers
 
-class AppForm(forms.ModelForm):  
-    class Meta:  
-        model = App  
-       
-        fields = "__all__" 
-
-class planForm(forms.ModelForm):  
-    class Meta:  
-        model = Plans  
-       
-        fields = "__all__" 
+# creates the form for the app model
 
 
-class SubsForm(forms.ModelForm):  
-    class Meta:  
-        model = Subscription  
-       
-        fields = "__all__" 
+class AppForm(forms.ModelForm):
+    class Meta:
+        model = App
+        # gets all fields from the model
+        fields = "__all__"
+
+# creates the form for the plan model
+
+
+class planForm(forms.ModelForm):
+    class Meta:
+        model = Plans
+        # gets all fields from the model
+        fields = "__all__"
+
+
+# creates the form for the subscriptions model
+class SubsForm(forms.ModelForm):
+    class Meta:
+        model = Subscription
+        # gets all fields from the model
+        fields = "__all__"

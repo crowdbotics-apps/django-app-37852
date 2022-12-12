@@ -2,10 +2,11 @@ from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.viewsets import ModelViewSet, ViewSet
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
-
+from home.models import App
 from home.api.v1.serializers import (
     SignupSerializer,
     UserSerializer,
+    AppSerializer
 )
 
 
@@ -28,3 +29,7 @@ class LoginViewSet(ViewSet):
         token, created = Token.objects.get_or_create(user=user)
         user_serializer = UserSerializer(user)
         return Response({"token": token.key, "user": user_serializer.data})
+
+class AppViewSet(ViewSet):
+   queryset = App.objects.all()
+   serializer_class = AppSerializer

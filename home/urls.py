@@ -2,7 +2,7 @@ from django.urls import path
 from .views import home
 from home import views
 
-
+#Routes of the app
 urlpatterns = [  
     path("", home, name="home"),
     path('app', views.app),  
@@ -16,4 +16,5 @@ urlpatterns = [
     path('subs/add', views.addSubs),  
     path('subs/edit/<int:id>', views.editSubs), 
     path('subs/update/<int:id>', views.updateSubs),  
+    
 ]  
