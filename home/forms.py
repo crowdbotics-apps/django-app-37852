@@ -1,6 +1,6 @@
 from django import forms
 from .models import App, Plans, Subscription
-from rest_framework import serializers
+
 
 # creates the form for the app model
 

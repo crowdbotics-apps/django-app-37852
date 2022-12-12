@@ -26,7 +26,9 @@ class App(models.Model):
 
     class Meta:
         db_table = "app"
-
+        
+    def __str__(self):
+        return self.name
 # Plans model
 
 

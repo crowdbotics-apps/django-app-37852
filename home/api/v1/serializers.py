@@ -8,11 +8,10 @@ from allauth.account.adapter import get_adapter
 from allauth.account.utils import setup_user_email
 from rest_framework import serializers
 from rest_auth.serializers import PasswordResetSerializer
-from home.forms import AppSerializer
 from home.models import App 
 
 User = get_user_model()
-App - get_user_model()
+
 
 class SignupSerializer(serializers.ModelSerializer):
     class Meta:
