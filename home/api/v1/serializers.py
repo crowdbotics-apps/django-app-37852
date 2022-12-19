@@ -8,7 +8,7 @@ from allauth.account.adapter import get_adapter
 from allauth.account.utils import setup_user_email
 from rest_framework import serializers
 from rest_auth.serializers import PasswordResetSerializer
-from home.models import App 
+from home.models import App , Plans , Subscription
 
 User = get_user_model()
 
@@ -76,10 +76,17 @@ class PasswordSerializer(PasswordResetSerializer):
     password_reset_form_class = ResetPasswordForm
 
 
-
-   
-   
 class AppSerializer(serializers.ModelSerializer):
-   class Meta:
+    class Meta:
        model = App
-       fields = ['name']
+       fields = "__all__"
+
+class PlansSerializer(serializers.ModelSerializer):
+    class Meta:
+       model = Plans
+       fields = "__all__"
+
+class SubsSerializer(serializers.ModelSerializer):
+    class Meta:
+       model = Subscription
+       fields = "__all__"

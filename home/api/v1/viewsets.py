@@ -1,12 +1,19 @@
 from rest_framework.authtoken.serializers import AuthTokenSerializer
-from rest_framework.viewsets import ModelViewSet, ViewSet
+from rest_framework.viewsets import ModelViewSet, ViewSet,ReadOnlyModelViewSet,GenericViewSet
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
-from home.models import App
+from rest_framework.views import APIView
+from rest_framework.generics import GenericAPIView
+from home.models import App,Plans,Subscription
+from rest_framework import status
+from rest_framework import permissions
+from rest_framework import mixins
 from home.api.v1.serializers import (
     SignupSerializer,
     UserSerializer,
-    AppSerializer
+    AppSerializer,
+    PlansSerializer,
+    SubsSerializer
 )
 
 
@@ -30,6 +37,21 @@ class LoginViewSet(ViewSet):
         user_serializer = UserSerializer(user)
         return Response({"token": token.key, "user": user_serializer.data})
 
-class AppViewSet(ViewSet):
-   queryset = App.objects.all()
-   serializer_class = AppSerializer
+class AppViewSet(ModelViewSet):
+    serializer_class = AppSerializer
+    queryset = App.objects.all()
+
+class PlanViewSet(ReadOnlyModelViewSet):
+    serializer_class = PlansSerializer
+    queryset = Plans.objects.all()
+   
+    
+class SubViewSet(mixins.CreateModelMixin,
+                                mixins.ListModelMixin,
+                                mixins.RetrieveModelMixin,
+                                mixins.UpdateModelMixin,
+                                GenericViewSet):
+    serializer_class = SubsSerializer
+    queryset = Subscription.objects.all()
+    
+ 
