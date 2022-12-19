@@ -5,6 +5,7 @@ from .models import App, Plans, Subscription
 # home render page
 def home(request):
     packages = [
+	{'name':'django-crispy-forms', 'url': 'http://pypi.python.org/pypi/django-crispy-forms/1.7.0'},
 	{'name':'crispy-forms-foundation', 'url': 'http://pypi.python.org/pypi/crispy-forms-foundation/0.6.4'},
         {'name': 'App', 'url': 'app/show'},
         {'name': 'Plans', 'url': 'plans'},
