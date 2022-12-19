@@ -4,8 +4,8 @@
 {% load bootstrap4 %}
 
 {% block content %}
-    <div class="jumbotron mt-5 editable" data-remote="{{ homepage.api }}" data-field="{{ homepage.field }}">
-      {{ homepage.body|safe }}
+    <div style="justify-content: center; display:flex; align-items: center" class="jumbotron mt-5 " data-remote="{{ homepage.api }}" data-field="{{ homepage.field }}">
+        <h2 >Web App made with crowdbotics.com using Django Framework</h2>
     </div>
     <div class="row mt-0 mb-5">
         {% for package in packages %}
