@@ -17,7 +17,7 @@
     <title>{{ customtext.title|striptags }}</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-sm navbar-light nav-custom">
+    <nav class="navbar navbar-expand-sm navbar-dark nav-custom">
       <a class="navbar-brand" href="/">Home</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -25,13 +25,13 @@
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto">
           <li class="{% if nbar == 'app' %}active{% endif %}">
-            <a class="nav-link" href="/app/show" >Apps</a>
+            <a class="nav-link navW" href="/app/show" >Apps</a>
           </li>
           <li class="{% if nbar == 'plan' %}active{% endif %}">
-            <a class="nav-link" href="/plans">Plans</a>
+            <a class="nav-link navW" href="/plans">Plans</a>
           </li>
           <li class="{% if nbar == 'subs' %}active{% endif %}">
-            <a class="nav-link" href="/subs">Subscriptions</a>
+            <a class="nav-link navW" href="/subs">Subscriptions</a>
           </li>
         </ul>
         <ul class="nav navbar-nav ml-auto">
