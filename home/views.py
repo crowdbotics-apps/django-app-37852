@@ -28,18 +28,18 @@ def app(request):
                 pass
     else:
         form = AppForm()
-    return render(request, 'index.html', {'form': form})
+    return render(request, 'index.html', {'form': form,'nbar':'app'})
 
 # list of apps page
 def show(request):
     apps = App.objects.all()
 
-    return render(request, "show.html", {'apps': apps})
+    return render(request, "show.html", {'apps': apps,'nbar':'app'})
 
 # edit of apps page
 def edit(request, id):
     app = App.objects.get(id=id)
-    return render(request, 'edit.html', {'app': app})
+    return render(request, 'edit.html', {'app': app,'nbar':'app'})
 
 # edit apps api
 def update(request, id):
@@ -48,7 +48,7 @@ def update(request, id):
     if form.is_valid():
         form.save()
         return redirect("/app/show")
-    return render(request, 'edit.html', {'app': app})
+    return render(request, 'edit.html', {'app': app,'nbar':'app'})
 
 # delete apps api
 def destroy(request, id):
@@ -61,7 +61,7 @@ def destroy(request, id):
 def plans(request):
     plans = Plans.objects.all()
 
-    return render(request, "plans/show.html", {'plans': plans})
+    return render(request, "plans/show.html", {'plans': plans,'nbar':'plan'})
 
 
 #not needed, used to add the 3 plans
@@ -76,13 +76,13 @@ def plan(request):
                 pass
     else:
         form = planForm()
-    return render(request, 'plans/plan.html', {'form': form})
+    return render(request, 'plans/plan.html', {'form': form,'nbar':'plan'})
 
 #render list of subs
 def subs(request):
     subs = Subscription.objects.all()
 
-    return render(request, "Subs/show.html", {'subs': subs})
+    return render(request, "Subs/show.html", {'subs': subs,'nbar':'subs'})
 
 #render sub form page
 def addSubs(request):
@@ -96,13 +96,13 @@ def addSubs(request):
                 pass
     else:
         form = SubsForm()
-    return render(request, 'Subs/add.html', {'form': form})
+    return render(request, 'Subs/add.html', {'form': form,'nbar':'subs'})
 
 #render sub edit form page
 def editSubs(request, id):
     sub = Subscription.objects.get(id=id)
     apps = App.objects.all()
-    return render(request, 'Subs/edit.html', {'sub': sub, 'apps': apps})
+    return render(request, 'Subs/edit.html', {'sub': sub, 'apps': apps,'nbar':'subs'})
 
 #update subs api call
 def updateSubs(request, id):
@@ -112,4 +112,4 @@ def updateSubs(request, id):
     if form.is_valid():
         form.save()
         return redirect("/subs")
-    return render(request, 'Subs/edit.html', {'sub': sub, 'apps': apps})
+    return render(request, 'Subs/edit.html', {'sub': sub, 'apps': apps,'nbar':'subs'})

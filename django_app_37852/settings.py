@@ -68,7 +68,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites'
+    'django.contrib.sites',
+    
 ]
 LOCAL_APPS = [
     'home',
@@ -87,6 +88,7 @@ THIRD_PARTY_APPS = [
     'django_extensions',
     'drf_yasg',
     'storages',
+
 ]
 MODULES_APPS = get_modules()
 
